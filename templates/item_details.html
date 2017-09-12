@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% block content %}
+
+<section class="special">
+    <div class="container">
+        <div class=" col-xs-12 margin-bottommore doc-profile-block">
+            <div class="head" style="background:#fff; color:#000; font-size:30px;">
+                <br>
+                <span class="text-left">{{item}}</span>
+            </div>
+            <div class="doc-profile-block-body">
+                <h4 style="font-size:20px; line-height:25px;">{{item_details}}</h4>
+            </div>
+        </div>
+    </div>
+                {% if logged == True %}
+            <a href="/edit/item/{{item}}">edit </a> <a href="/delete/item/{{item}}">delete</a>
+            {% endif %}
+</section>
+{% endblock %}

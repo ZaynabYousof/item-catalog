@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--CSS-->
+    <link rel="stylesheet" href="/statics/css/bootstrap.min.css">
+    <link href="/statics/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="/statics/css/simple-line-icons.css" rel="stylesheet" media="screen">
+    <link href="/statics/css/animate.css" rel="stylesheet">
+    <!-- Custom Css-->
+    <link href="/statics/css/style.css" rel="stylesheet" media="screen">
+</head>
+<body id="page-top">
+{% include 'header.html' %}
+<section>
+{% include 'flash_messages.html' %}
+
+{% block content %}
+{% endblock %}
+
+
+</section>
+
+<section class="footer test-center">
+    <div class="container">
+        <center>
+            <a href="#"> <img src="/statics/image/7.png"/></a>
+            <a href=""> <img src="/statics/image/8.png"/></a>
+            <a href=""><img src="/statics/image/123.png"/></a>
+
+        </center>
+    </div>
+
+</section>
+<!--end footer section*/-->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
+      <script src="//apis.google.com/js/platform.js?onload=start"> </script>
+        <script type="text/javascript">
+      function signInCallback(authResult){
+            if(authResult['code']){
+                  $('#signInButton').css({
+                        display: "none"
+                  });
+
+                  $.ajax({
+                        type: "POST",
+                        url: '/gconnect?state={{STATE}}',
+                        processData:false,
+                        contentType: "application/octet-stream; charset=utf-8",
+                        data: authResult['code'],
+                        success: function(r){
+                              if(r){
+                                    window.location.href="/";
+                              }else{
+                                    $('#myModal').modal('show');
+                              }
+                        },
+                        error: function(){
+                            $('#myModal').modal('show');
+                        }
+                  });
+            } else if(authResult['error']){
+                  $('#myModal').modal('show');
+            }
+      }
+</script>
+</body>
+</html>

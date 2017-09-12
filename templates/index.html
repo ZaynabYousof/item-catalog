@@ -1,0 +1,37 @@
+{% extends "master.html" %}
+{% block content %}
+<!--End Nav BAR -->
+<!-- Begin Page Content-->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<p class="h1"> Categories </p>
+				 <p>
+					 <!--<a class="category" href="#">Soccer </a>-->
+					 <!--<a class="category" href="#">{{categories[0]}} </a>-->
+					 {% for category in categories %}
+					 <br>
+					 	<a class="category" href="/category/{{category}}">{{category}} </a>
+					 {% endfor %}
+				 </p>
+				 {% if logged %}
+				 <a href="add/category">add category</a>
+				 {% endif %}
+			</div>
+			<div class="col-sm-8 verticalLine">
+				<p class="h1"> Latest Items </p>
+				 <p>
+					 <!--<a class="category" href="#">shingu </a><span class"dis">(Soccer)</span>-->
+				 	{% for item in items %}
+					 <br>
+					 	<a class="category" href="/item/{{item}}">{{item}} </a>
+					 {% endfor %}
+				 </p>
+				 {% if logged %}
+				 <a href="add/item">add item</a>
+				 {% endif %}
+			</div>
+		</div>
+	</div>
+<!-- End Page Content -->
+{% endblock%}

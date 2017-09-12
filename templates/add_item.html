@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+{% block content %}
+<section class="special">
+    <div class="container">
+        <div class=" col-xs-12 margin-bottommore doc-profile-block" style="height:340px;">
+            <div class="head" style=" font-size:30px;">
+                <span class="text-left">Add new Item</span>
+            </div>
+            <div class="doc-profile-block-body">
+                <br>
+                <form action="/add/item" , method="post">
+                    Name: <br/>
+                    <input type="text" placeholder="Snowboard" name="txtItemName"/><br/><br/>
+                    Description <br/>
+                    <input type="text" placeholder="Bic for any human"
+                            name="txtItemDesc"/><br/><br/>
+                    Category: <br/>
+                    <select name="ddItemCategory">
+                    {% for cat in Categories %}
+                        <option value="{{ cat.id }}">{{ cat.name }}</option>
+                    {% endfor %}
+                    </select><br/><br/>
+                    <button type="submit"> Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

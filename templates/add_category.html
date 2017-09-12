@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% block content %}
+<section class="special">
+    <div class="container">
+        <div class=" col-xs-12 margin-bottommore doc-profile-block" style="height:340px;">
+            <div class="head" style="font-size:30px;">
+                Add New Category
+            </div>
+            <div class="doc-profile-block-body">
+                <br>
+                <form action="/add/category" , method="post">
+                    Name: <br/>
+                    <input type="text" placeholder="Snowboard" name="txtCategoryName"/><br/><br/>
+                    <button type="submit"> Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+{% block content %}
+
+<section class="special">
+    <div class="container">
+        <div class=" col-xs-12 margin-bottommore doc-profile-block" style="height:340px;">
+            <div class="head" style="background:#fff; color:#000; font-size:30px;">
+                <span class="text-left">{{ item[0] }}</span>
+            </div>
+            <div class="doc-profile-block-body">
+                <br>
+                <form action="/edit/item" , method="post">
+                    Title: <br/>
+                    <input type="hidden" name="txtId" value="{{ item[3] }}" />
+                    <input type="text" placeholder="Snowboard" value="{{ item[0] }}" name="txtTitle"/><br/><br/>
+                    Description <br/>
+                    <input type="text" placeholder="Bic for any human"
+                           value="{{ item[1] }}" name="txtDescription"/><br/><br/>
+                    Category: <br/>
+                    <select name="ddCategory">
+                    {% for cat in Categories %}
+                        <option value="{{ cat.id }}">{{ cat.name }}</option>
+                    {% endfor %}
+                    </select><br/><br/>
+                    <button type="submit"> Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
